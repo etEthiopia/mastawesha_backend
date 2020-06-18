@@ -1,0 +1,26 @@
+{
+  "name": "jwt_example_backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Carmine Zaccagnino",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^1.19.4",
+    "cors": "^2.8.5",
+    "body-parser": "^1.19.0",
+    "mongodb": "^3.5.2",
+    "mongoose": "^5.8.10",
+    "jsonwebtoken": "^8.5.1",
+    "react-datepicker": "^2.10.1",
+    "underscore": "^1.9.2"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0"
+  }
+}
