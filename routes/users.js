@@ -18,7 +18,7 @@ router.get("/", async (req, res) => {
         .then(users => res.json(users)["success"] = true)
         .catch(err =>
             res.json({
-                message: "ERROR: " + err.toString(),
+                message: err.toString(),
                 success: false
             })
         );
@@ -32,7 +32,7 @@ router.get("/users", auth, async (req, res) => {
         .then(users => res.json(users)["success"] = true)
         .catch(err =>
             res.json({
-                message: "ERROR: " + err.toString(),
+                message: err.toString(),
                 success: false
             })
         );
@@ -58,7 +58,7 @@ router.post("/register", async (req, res) => {
         })
         .catch(err =>
             res.json({
-                message: "ERROR: " + err.toString(),
+                message: err.toString(),
                 success: false
             })
         );
@@ -80,14 +80,14 @@ router.post("/login", async (req, res) => {
         })
         .then(user => {
             if (newUser.password == user.password) {
-                var payload = new User({
+                var payload = {
                     email: req.body.email,
                     password: password,
                     firstname: user.firstname,
                     lastname: user.lastname
-                });
+                };
 
-                var token = jwt.sign(payload, KEY, {
+                var token = jwt.sign(payload, process.env.KEY, {
                     algorithm: 'HS256',
                     expiresIn: "15d"
                 });
@@ -105,7 +105,7 @@ router.post("/login", async (req, res) => {
         })
         .catch(err =>
             res.json({
-                message: "ERROR: " + err.toString(),
+                message: err.toString(),
                 success: false
             })
         );
