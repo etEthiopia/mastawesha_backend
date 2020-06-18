@@ -14,7 +14,7 @@ function auth(req, res, next) {
         next();
     } catch {
         res.status(401);
-        res.send.json({
+        res.json({
             message: "Bad Token",
             success: false
         });

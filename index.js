@@ -8,7 +8,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 
 //routes
-
+const users = require("./routes/users");
 
 // instantiate Express
 const app = express();
@@ -19,7 +19,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // use routes
-
+app.use("/users/", users);
 
 mongoose
     .connect(process.env.DB_CONNECTION, {

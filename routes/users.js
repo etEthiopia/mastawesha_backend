@@ -24,7 +24,7 @@ router.get("/", async (req, res) => {
         );
 });
 
-// @Route GET api/Users
+// @Route GET api / Users
 // @desc GET All Users
 // @access Private
 router.get("/users", auth, async (req, res) => {
@@ -42,7 +42,7 @@ router.get("/users", auth, async (req, res) => {
 // @Route POST api/Users
 // @desc Create a User
 // @access Public
-router.post("/", async (req, res) => {
+router.post("/register", async (req, res) => {
 
     var password = crypto.createHash('sha256').update(req.body.password).digest('hex');
     const newUser = new User({
@@ -68,7 +68,7 @@ router.post("/", async (req, res) => {
 // @Route POST api/Users
 // @desc Login an User
 // @access Public
-router.post("/login/", async (req, res) => {
+router.post("/login", async (req, res) => {
 
     var password = crypto.createHash('sha256').update(req.body.password).digest('hex');
     const newUser = new User({
@@ -110,3 +110,5 @@ router.post("/login/", async (req, res) => {
             })
         );
 });
+
+module.exports = router;
