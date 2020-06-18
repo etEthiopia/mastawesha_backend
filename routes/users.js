@@ -3,6 +3,7 @@ var _ = require("underscore");
 var crypto = require('crypto');
 var jwt = require('jsonwebtoken');
 
+
 // User Model
 const User = require("../models/User");
 
@@ -69,6 +70,7 @@ router.post("/register", async (req, res) => {
 // @desc Login an User
 // @access Public
 router.post("/login", async (req, res) => {
+    
 
     var password = crypto.createHash('sha256').update(req.body.password).digest('hex');
     const newUser = new User({
