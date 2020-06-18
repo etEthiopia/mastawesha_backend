@@ -15,6 +15,7 @@
     "cors": "^2.8.5",
     "body-parser": "^1.19.0",
     "mongodb": "^3.5.2",
+    "config": "^3.2.5",
     "mongoose": "^5.8.10",
     "jsonwebtoken": "^8.5.1",
     "react-datepicker": "^2.10.1",
