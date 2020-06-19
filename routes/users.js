@@ -44,7 +44,7 @@ router.get("/users", auth, async (req, res) => {
 // @desc Create a User
 // @access Public
 router.post("/register", async (req, res) => {
-
+    console.log(JSON.stringify(req.body));
     var password = crypto.createHash('sha256').update(req.body.password).digest('hex');
     const newUser = new User({
         email: req.body.email,
@@ -70,7 +70,7 @@ router.post("/register", async (req, res) => {
 // @desc Login an User
 // @access Public
 router.post("/login", async (req, res) => {
-    
+
 
     var password = crypto.createHash('sha256').update(req.body.password).digest('hex');
     const newUser = new User({
