@@ -19,7 +19,8 @@
     "mongoose": "^5.8.10",
     "jsonwebtoken": "^8.5.1",
     "react-datepicker": "^2.10.1",
-    "underscore": "^1.9.2"
+    "underscore": "^1.9.2",
+    "multer": "^1.4.2"
   },
   "devDependencies": {
     "dotenv": "^8.2.0"
