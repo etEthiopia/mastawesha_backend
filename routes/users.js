@@ -8,7 +8,7 @@ const storage = multer.diskStorage({
 		cb(null, './uploads/');
 	},
 	filename: function(req, file, cb) {
-		cb(null, Date().toISOString() + file.filename);
+		cb(null, file.originalname);
 	}
 });
 
@@ -73,25 +73,32 @@ router.post('/register', async (req, res) => {
 // @desc Create a User with Picture
 // @access Public
 router.post('/registerp', upload.single('picture'), async (req, res) => {
-	console.log(JSON.stringify(req.body));
-	var password = crypto.createHash('sha256').update(req.body.password).digest('hex');
-	const newUser = new User({
-		email: req.body.email,
-		firstname: req.body.firstname,
-		lastname: req.body.lastname,
-		password: password
-	});
-	await newUser
-		.save()
-		.then((user) => {
-			res.status(201).json(user)['success'] = true;
-		})
-		.catch((err) =>
-			res.json({
-				message: err.toString(),
-				success: false
+	try {
+		console.log(JSON.stringify(req.body));
+		var password = crypto.createHash('sha256').update(req.body.password).digest('hex');
+		const newUser = new User({
+			email: req.body.email,
+			firstname: req.body.firstname,
+			lastname: req.body.lastname,
+			password: password
+		});
+		await newUser
+			.save()
+			.then((user) => {
+				res.status(201).json(user)['success'] = true;
 			})
-		);
+			.catch((err) =>
+				res.json({
+					message: err.toString(),
+					success: false
+				})
+			);
+	} catch (err) {
+		res.json({
+			message: err.toString(),
+			success: false
+		});
+	}
 });
 
 // @Route POST api/Users
