@@ -17,7 +17,7 @@
     "mongodb": "^3.5.2",
     "config": "^3.2.5",
     "mongoose": "^5.8.10",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "react-datepicker": "^2.10.1",
     "underscore": "^1.9.2",
     "multer": "^1.4.2"
